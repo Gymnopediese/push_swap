@@ -1,0 +1,20 @@
+make re
+echo "" > test.txt
+for VARIABLE in {00..100}
+	do
+		./push_swap `ruby -e "puts (1..500).to_a.shuffle.join(' ')"` | wc -w >> test.txt
+	done
+for VARIABLE in {00..100}
+	do
+		./push_swap `ruby -e "puts (1..100).to_a.shuffle.join(' ')"` | wc -w >> test.txt
+	done
+for VARIABLE in {00..100}
+	do
+		./push_swap `ruby -e "puts (1..5).to_a.shuffle.join(' ')"` | wc -w >> test.txt
+	done
+cat test.txt | grep " 56"
+cat test.txt | grep " 55"
+cat test.txt | grep " 7"
+cat test.txt | grep " 13"
+cat test.txt | grep " 14"
+cat test.txt | grep " 15"
